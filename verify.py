@@ -1,5 +1,5 @@
 from engine.game import Game
-from engine.basic_strategy_agent import BasicStrategyAgent
+from agents.basic_strategy_agent import BasicStrategyAgent
 
 
 def main():

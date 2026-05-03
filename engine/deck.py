@@ -1,6 +1,11 @@
 import random
 
 class Deck:
+    """
+    Represents the whole blackjack deck
+
+    Att
+    """
     def __init__(self):
         numbered = list(range(2, 11))
         face = ['J', 'Q', 'K']

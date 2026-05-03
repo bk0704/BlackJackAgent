@@ -15,22 +15,18 @@ class Hand:
         aces_counted_as_11 = sum(1 for card in self.cards if card == 'A')
         total = sum_non + (aces_counted_as_11 * 11)
         while total > 21 and aces_counted_as_11 > 0:
-            total = total - 10
-            aces_counted_as_11 = aces_counted_as_11 - 1
+            total -= 10
+            aces_counted_as_11 -= 1
         self.total = total
         self.aces_counted_as_11 = aces_counted_as_11
+        self.update_is_soft()
+        self.update_is_bust()
 
-    def is_soft(self):
-        is_soft = self.aces_counted_as_11 > 0
-        self.is_soft = is_soft
+    def update_is_soft(self):
+        self.is_soft = self.aces_counted_as_11 > 0
 
-    # TODO: Implement is_bust()
-    def is_bust(self):
-        is_bust = self.total > 21
-        self.is_bust = is_bust
+    def update_is_bust(self):
+        self.is_bust = self.total > 21
 
-    # TODO: Implement is_natural_blackjack
-    def is_natural_blackjack(self):
-        is_len_2 = len(self.cards) == 2
-        is_21 = self.total == 21
-        return is_len_2 and is_21
+    def check_natural_blackjack(self):
+        return len(self.cards) == 2 and self.total == 21
