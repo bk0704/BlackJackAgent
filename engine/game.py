@@ -68,8 +68,7 @@
 
 from engine.deck import Deck
 from engine.hand import Hand
-from engine.gameState import GameState as _GameStateOuter
-GameState = _GameStateOuter.GameState
+from engine.gameState import GameState
 
 
 class Game:
